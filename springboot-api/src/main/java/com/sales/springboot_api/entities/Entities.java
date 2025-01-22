@@ -20,7 +20,7 @@ public class Entities {
     private Integer year;
 
     private String genre;
-    private String plataforms;
+    private String platforms;
     private Double score;
     private String imgUrl;
     private String shortDesc;
@@ -65,11 +65,11 @@ public class Entities {
     }
 
     public String getPlataforms() {
-        return plataforms;
+        return platforms;
     }
 
     public void setPlataforms(String plataforms) {
-        this.plataforms = plataforms;
+        this.platforms = plataforms;
     }
 
     public Double getScore() {
