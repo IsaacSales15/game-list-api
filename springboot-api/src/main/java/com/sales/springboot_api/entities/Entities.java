@@ -22,8 +22,14 @@ public class Entities {
     private String genre;
     private String platforms;
     private Double score;
+    
+    @Column(name = "img_url")
     private String imgUrl;
+
+    @Column(name = "short_desc", columnDefinition = "TEXT")
     private String shortDesc;
+
+    @Column(name = "long_desc", columnDefinition = "TEXT")
     private String longDesc;
 
     // Constructor
@@ -64,11 +70,11 @@ public class Entities {
         this.genre = genre;
     }
 
-    public String getPlataforms() {
+    public String getPlatforms() {
         return platforms;
     }
 
-    public void setPlataforms(String plataforms) {
+    public void setPlatforms(String plataforms) {
         this.platforms = plataforms;
     }
 
