@@ -9,7 +9,7 @@ import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "tb_game")
-public class Entities {
+public class Element {
     // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Entities {
     private String genre;
     private String platforms;
     private Double score;
-    
+
     @Column(name = "img_url")
     private String imgUrl;
 
@@ -33,8 +33,21 @@ public class Entities {
     private String longDesc;
 
     // Constructor
-    public Entities() {
+    public Element() {
 
+    }
+    
+    public Element(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
+            String shortDesc, String longDesc) {
+        this.id = id;
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.platforms = platforms;
+        this.score = score;
+        this.imgUrl = imgUrl;
+        this.shortDesc = shortDesc;
+        this.longDesc = longDesc;
     }
 
     // Getters and Setters
@@ -127,7 +140,7 @@ public class Entities {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Entities other = (Entities) obj;
+        Element other = (Element) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
