@@ -33,5 +33,4 @@ public class ElementService {
         ElementDTO dto = new ElementDTO(result);
         return dto;
     }
-
 }

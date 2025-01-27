@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-//import com.sales.springboot_api.entities.Element;
 import com.sales.springboot_api.services.ElementService;
 import com.sales.springboot_api.dto.ElementDTO;
 import com.sales.springboot_api.dto.ElementMinDTO;

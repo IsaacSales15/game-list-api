@@ -1,26 +1,18 @@
-package com.sales.springboot_api.entities;
+package com.sales.springboot_api.dto;
 
-import jakarta.persistence.Table;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.sales.springboot_api.entities.ElementList;
 
-@Entity
-@Table(name = "tb_element_list")
-public class ElementList {
+public class ElementListDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-    public ElementList() {
+    public ElementListDTO() {
     }
 
-    public ElementList(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    public ElementListDTO(ElementList entity) {
+        id = entity.getId();
+        name = entity.getName();
     }
 
     public Long getId() {
@@ -55,7 +47,7 @@ public class ElementList {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        ElementList other = (ElementList) obj;
+        ElementListDTO other = (ElementListDTO) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
