@@ -24,8 +24,10 @@ public class BelongingService {
 
     @Transactional
     public Belonging insert(BelongingDTO belongingDTO) {
-        Element element = elementRepository.findById(belongingDTO.getElementId()).orElseThrow();
-        ElementList list = elementListRepository.findById(belongingDTO.getListId()).orElseThrow();
+        Element element = elementRepository.findById(belongingDTO.getElementId())
+                .orElseThrow(() -> new IllegalArgumentException("Element not found"));
+        ElementList list = elementListRepository.findById(belongingDTO.getListId())
+                .orElseThrow(() -> new IllegalArgumentException("List not found"));
 
         Belonging belonging = new Belonging(element, list, belongingDTO.getPosition());
         return belongingRepository.save(belonging);
