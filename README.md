@@ -7,7 +7,7 @@ Uma API RESTful desenvolvida em Java com Spring Boot para gerenciamento de uma l
 - **Java**: Linguagem de programação principal.
 - **Spring Boot**: Framework para simplificar a criação de aplicações Java.
 - **Spring Data JPA**: Para interações com o banco de dados.
-- **Banco de Dados**: (Especifique o banco de dados utilizado, como H2, PostgreSQL, etc.)
+- **Banco de Dados**: H2.
 - **Maven**: Gerenciador de dependências e build.
 
 ## ⚙️ Como Executar
