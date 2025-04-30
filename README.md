@@ -1,47 +1,104 @@
-# 🎮 Game List API
+<h1>🎮 Game List API – Catálogo de Jogos</h1>
+<p>API REST desenvolvida com Spring Boot para gerenciamento de uma lista de jogos. Permite cadastrar, listar, buscar e deletar jogos com informações como nome, descrição, plataforma e status.</p>
 
-Uma API RESTful desenvolvida em Java com Spring Boot para gerenciamento de uma lista de jogos. Este projeto permite a criação, leitura, atualização e exclusão (CRUD) de informações sobre jogos.
+<hr>
 
-## 🚀 Tecnologias Utilizadas
+<h2>🔧 Tecnologias</h2>
+<ul>
+  <li>Java 17+</li>
+  <li>Spring Boot</li>
+  <li>Spring Data JPA</li>
+  <li>H2 Database</li>
+  <li>Lombok</li>
+  <li>Jakarta Validation</li>
+</ul>
 
-- **Java**: Linguagem de programação principal.
-- **Spring Boot**: Framework para simplificar a criação de aplicações Java.
-- **Spring Data JPA**: Para interações com o banco de dados.
-- **Banco de Dados**: H2.
-- **Maven**: Gerenciador de dependências e build.
+<hr>
 
-## ⚙️ Como Executar
+<h2>🏁 Como executar</h2>
+<pre><code>git clone https://github.com/IsaacSales15/game-list-api.git
+cd game-list-api
+./mvnw spring-boot:run
+</code></pre>
 
-1. Clone o repositório:
+<hr>
 
-    ```bash
-    git clone https://github.com/IsaacSales15/game-list-api.git
-    cd game-list-api/springboot-api
-    ```
+<h2>📦 Estrutura do Projeto</h2>
+<ul>
+  <li><b>controller</b>: camada de controle da API (<code>GameController</code>)</li>
+  <li><b>model</b>: entidade <code>Game</code></li>
+  <li><b>repository</b>: interface JPA para acesso ao banco de dados</li>
+  <li><b>dto</b>: representação dos dados transferidos</li>
+</ul>
 
-2. Configure o banco de dados:
+<hr>
 
-    Atualize o arquivo `application.properties` com as configurações do seu banco de dados.
+<h2>🚀 Endpoints</h2>
 
-3. Compile e execute a aplicação:
+<h3>🔹 GET /games</h3>
+<p>Retorna a lista de todos os jogos cadastrados.</p>
+<pre><code>[
+  {
+    "id": 1,
+    "title": "God of War",
+    "description": "Aventura e ação mitológica",
+    "platform": "PlayStation 4",
+    "status": "COMPLETED"
+  }
+]
+</code></pre>
 
-    ```bash
-    ./mvnw spring-boot:run
-    ```
+<h3>🔹 GET /games/{id}</h3>
+<p>Busca um jogo pelo ID.</p>
+<b>Resposta (200 OK):</b>
+<pre><code>{
+  "id": 1,
+  "title": "God of War",
+  "description": "Aventura e ação mitológica",
+  "platform": "PlayStation 4",
+  "status": "COMPLETED"
+}
+</code></pre>
 
-    A aplicação estará disponível em [http://localhost:8080](http://localhost:8080).
+<b>Resposta (404 Not Found):</b>
+<p>Sem corpo de resposta.</p>
 
-## 📌 Endpoints Disponíveis
+<h3>🔹 POST /games</h3>
+<p>Cadastra um novo jogo.</p>
+<b>Corpo da Requisição:</b>
+<pre><code>{
+  "title": "Elden Ring",
+  "description": "RPG de ação em mundo aberto",
+  "platform": "PC",
+  "status": "PLAYING"
+}
+</code></pre>
 
-- **GET /games**: Lista todos os jogos.
-- **GET /games/{id}**: Obtém detalhes de um jogo específico.
-- **POST /games**: Adiciona um novo jogo.
-- **PUT /games/{id}**: Atualiza as informações de um jogo existente.
-- **DELETE /games/{id}**: Remove um jogo da lista.
+<b>Resposta (201 Created):</b>
+<pre><code>{
+  "id": 2,
+  "title": "Elden Ring",
+  "description": "RPG de ação em mundo aberto",
+  "platform": "PC",
+  "status": "PLAYING"
+}
+</code></pre>
 
-## 🧪 Testes
+<h3>🔹 DELETE /games/{id}</h3>
+<p>Remove um jogo da lista pelo ID.</p>
+<b>Resposta (204 No Content):</b> Jogo deletado com sucesso. <br>
+<b>Resposta (404 Not Found):</b> Jogo não encontrado.
 
-Para executar os testes da aplicação:
+<hr>
 
-```bash
-./mvnw test
+<h2>📌 Validações</h2>
+<ul>
+  <li><code>title</code>: obrigatório</li>
+  <li><code>description</code>: obrigatório</li>
+  <li><code>platform</code>: obrigatório</li>
+  <li><code>status</code>: obrigatório (ex: <code>PLAYING</code>, <code>COMPLETED</code>, <code>WISHLIST</code>)</li>
+</ul>
+
+<hr>
+
+<p>A API estará disponível em: <a href="http://localhost:8080/games">http://localhost:8080/games</a></p>
